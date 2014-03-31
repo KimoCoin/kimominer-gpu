@@ -20,88 +20,88 @@ SUBDIRS		= lib compat ccan
 
 INCLUDES	= $(PTHREAD_FLAGS) -fno-strict-aliasing $(JANSSON_INCLUDES) $(USBUTILS_INCLUDES)
 
-bin_PROGRAMS	= vertminer
+bin_PROGRAMS	= kimominer
 
-vertminer_LDFLAGS	= $(PTHREAD_FLAGS)
-vertminer_LDADD	= $(DLOPEN_FLAGS) @LIBCURL_LIBS@ @JANSSON_LIBS@ @PTHREAD_LIBS@ \
+kimominer_LDFLAGS	= $(PTHREAD_FLAGS)
+kimominer_LDADD	= $(DLOPEN_FLAGS) @LIBCURL_LIBS@ @JANSSON_LIBS@ @PTHREAD_LIBS@ \
 		  @OPENCL_LIBS@ @NCURSES_LIBS@ @PDCURSES_LIBS@ @WS2_LIBS@ \
 		  @LIBUSB_LIBS@ @MM_LIBS@ @RT_LIBS@ \
 		  @MATH_LIBS@ lib/libgnu.a ccan/libccan.a
 
 if HAVE_WINDOWS
-vertminer_CPPFLAGS = -I$(top_builddir)/lib -I$(top_srcdir)/lib @OPENCL_FLAGS@
+kimominer_CPPFLAGS = -I$(top_builddir)/lib -I$(top_srcdir)/lib @OPENCL_FLAGS@
 else
-vertminer_CPPFLAGS = -I$(top_builddir)/lib -I$(top_srcdir)/lib @OPENCL_FLAGS@ @LIBCURL_CFLAGS@
+kimominer_CPPFLAGS = -I$(top_builddir)/lib -I$(top_srcdir)/lib @OPENCL_FLAGS@ @LIBCURL_CFLAGS@
 endif
 
-vertminer_CPPFLAGS += $(ADL_CPPFLAGS)
+kimominer_CPPFLAGS += $(ADL_CPPFLAGS)
 
 # common sources
-vertminer_SOURCES := vertminer.c
+kimominer_SOURCES := kimominer.c
 
-vertminer_SOURCES	+= elist.h miner.h compat.h bench_block.h	\
+kimominer_SOURCES	+= elist.h miner.h compat.h bench_block.h	\
 		   util.c util.h uthash.h logging.h		\
 		   sha2.c sha2.h api.c
 
-vertminer_SOURCES	+= logging.c
+kimominer_SOURCES	+= logging.c
 
 if HAS_OPENCL
 bin_SCRIPTS	= $(top_srcdir)/*.cl
 
-vertminer_SOURCES += driver-opencl.h driver-opencl.c
-vertminer_SOURCES += ocl.c ocl.h findnonce.c findnonce.h
-vertminer_SOURCES += adl.c adl.h adl_functions.h
-vertminer_SOURCES += *.cl
+kimominer_SOURCES += driver-opencl.h driver-opencl.c
+kimominer_SOURCES += ocl.c ocl.h findnonce.c findnonce.h
+kimominer_SOURCES += adl.c adl.h adl_functions.h
+kimominer_SOURCES += *.cl
 
 if HAS_SCRYPT
-vertminer_SOURCES += scrypt.c scrypt.h
+kimominer_SOURCES += scrypt.c scrypt.h
 endif
 
 endif
 
 if NEED_FPGAUTILS
-vertminer_SOURCES += fpgautils.c fpgautils.h
+kimominer_SOURCES += fpgautils.c fpgautils.h
 endif
 
 if WANT_USBUTILS
-vertminer_SOURCES += usbutils.c usbutils.h
+kimominer_SOURCES += usbutils.c usbutils.h
 endif
 
 # Device drivers
 if HAS_AVALON
-vertminer_SOURCES += driver-avalon.c driver-avalon.h
+kimominer_SOURCES += driver-avalon.c driver-avalon.h
 endif
 
 if HAS_KNC
-vertminer_SOURCES += driver-knc-spi-fpga.c
+kimominer_SOURCES += driver-knc-spi-fpga.c
 endif
 
 if HAS_BFLSC
-vertminer_SOURCES += driver-bflsc.c driver-bflsc.h
+kimominer_SOURCES += driver-bflsc.c driver-bflsc.h
 endif
 
 if HAS_BITFORCE
-vertminer_SOURCES += driver-bitforce.c
+kimominer_SOURCES += driver-bitforce.c
 endif
 
 if HAS_HASHFAST
-vertminer_SOURCES += driver-hashfast.c driver-hashfast.h hf_protocol.h
+kimominer_SOURCES += driver-hashfast.c driver-hashfast.h hf_protocol.h
 endif
 
 if HAS_BITFURY
-vertminer_SOURCES += driver-bitfury.c driver-bitfury.h
+kimominer_SOURCES += driver-bitfury.c driver-bitfury.h
 endif
 
 if HAS_ICARUS
-vertminer_SOURCES += driver-icarus.c
+kimominer_SOURCES += driver-icarus.c
 endif
 
 if HAS_KLONDIKE
-vertminer_SOURCES += driver-klondike.c
+kimominer_SOURCES += driver-klondike.c
 endif
 
 if HAS_MODMINER
-vertminer_SOURCES += driver-modminer.c
+kimominer_SOURCES += driver-modminer.c
 bitstreamsdir = $(bindir)/bitstreams
 dist_bitstreams_DATA = $(top_srcdir)/bitstreams/*
 endif

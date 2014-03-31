@@ -2692,19 +2692,19 @@ bool cg_completion_timeout(void *fn, void *fnarg, int timeout)
 
 const unsigned char minNfactor = 10;
 const unsigned char maxNfactor = 30;
-const unsigned int vert_nChainStartTime = 1389306217;
+const unsigned int kimo_nChainStartTime = 1389306217;
 
-unsigned char vert_GetNfactor(const long int nTimestamp) {
+unsigned char kimo_GetNfactor(const long int nTimestamp) {
     int l, n;
     long int s;
 
     l = 0;
 
-    if (nTimestamp <= vert_nChainStartTime) {
+    if (nTimestamp <= kimo_nChainStartTime) {
         return minNfactor;
     }
 
-    s = nTimestamp - vert_nChainStartTime;
+    s = nTimestamp - kimo_nChainStartTime;
     while ((s >> 1) > 3) {
       l += 1;
       s >>= 1;

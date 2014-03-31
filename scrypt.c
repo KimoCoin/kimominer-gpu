@@ -417,7 +417,7 @@ void scrypt_regenhash(struct work *work)
  	
 	if (opt_nscrypt) {
 		timestamp = bswap_32(*((uint32_t *)(work->data + 17*4)));
- 		nfactor = vert_GetNfactor(timestamp) + 1;
+ 		nfactor = kimo_GetNfactor(timestamp) + 1;
 	}	
 
 	be32enc_vect(data, (const uint32_t *)work->data, 19);

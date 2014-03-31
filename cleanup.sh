@@ -1,5 +1,5 @@
 #!/bin/sh
-if [ -a vertminer.o ]
+if [ -a kimominer.o ]
 then
   make clean
 fi

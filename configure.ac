@@ -11,12 +11,12 @@ m4_define([lt_age], v_min)
 ##--##--##--##--##--##--##--##--##--##--##--##--##--##--##--##--##
 ##--##--##--##--##--##--##--##--##--##--##--##--##--##--##--##--##
 
-AC_INIT([vertminer], [v_ver], [])
+AC_INIT([kimominer], [v_ver], [])
 
 AC_PREREQ(2.59)
 AC_CANONICAL_SYSTEM
 AC_CONFIG_MACRO_DIR([m4])
-AC_CONFIG_SRCDIR([vertminer.c])
+AC_CONFIG_SRCDIR([kimominer.c])
 AC_CONFIG_HEADERS([config.h])
 
 AM_INIT_AUTOMAKE([foreign subdir-objects])
@@ -474,7 +474,7 @@ if test "x$prefix" = xNONE; then
 	prefix=/usr/local
 fi
 
-AC_DEFINE_UNQUOTED([CGMINER_PREFIX], ["$prefix/bin"], [Path to vertminer install])
+AC_DEFINE_UNQUOTED([CGMINER_PREFIX], ["$prefix/bin"], [Path to kimominer install])
 
 AC_DEFINE_UNQUOTED([PHATK_KERNNAME], ["phatk121016"], [Filename for phatk kernel])
 AC_DEFINE_UNQUOTED([POCLBM_KERNNAME], ["poclbm130302"], [Filename for poclbm kernel])

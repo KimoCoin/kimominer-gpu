@@ -2,7 +2,7 @@ Version 0.5.4pre2 - 12 February 2014
 - include more ADL6 stuff
 - prepared miner to mine scrypt and nfactor scrypt
   --> option --scrypt => normal scrypt
-  --> option --nscrypt => nfactor scrypt (e.g. vertcoin)
+  --> option --nscrypt => nfactor scrypt (e.g. kimocoin)
 
 
 Version 0.5.3 - 2 February 2014

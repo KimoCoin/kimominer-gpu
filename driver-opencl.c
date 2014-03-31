@@ -1079,7 +1079,7 @@ static cl_int queue_scrypt_kernel(_clState *clState, dev_blk_ctx *blk, __maybe_u
  	
 	if (opt_nscrypt) {
 		timestamp = bswap_32(*((uint32_t *)(blk->work->data + 17*4)));
- 		nfactor = vert_GetNfactor(timestamp) + 1;
+ 		nfactor = kimo_GetNfactor(timestamp) + 1;
 	}	
 
 	le_target = *(cl_uint *)(blk->work->device_target + 28);

@@ -2,12 +2,12 @@
 CFLAGS="-O2 -march=native -msse2" ./configure --enable-scrypt --enable-opencl
 make
 
-if [ -a vertminer.exe ]
+if [ -a kimominer.exe ]
 then
-  echo "stripping vertminer.exe"
-  strip vertminer.exe
+  echo "stripping kimominer.exe"
+  strip kimominer.exe
 else
-  echo "stripping vertminer"
-  strip vertminer
+  echo "stripping kimominer"
+  strip kimominer
 fi
 
